@@ -1,0 +1,44 @@
+{
+    "name": "komand-expo",
+    "version": "1.2.0",
+    "description": "The full Expo / React Native plugin — Android, iOS, web, EAS, upgrades, everything — with one Komand-specific extension: iOS runs surface inside Komand's embedded iPhone preview instead of Apple's Simulator.app. Android and web workflows are identical to upstream Expo.",
+    "author": {
+        "name": "Komand",
+        "email": "support@komand.ai",
+        "url": "https://komand.ai/"
+    },
+    "homepage": "https://komand.ai/",
+    "repository": "https://github.com/PauliusOS/macosclaude",
+    "license": "MIT",
+    "keywords": [
+        "expo",
+        "react-native",
+        "expo-router",
+        "eas",
+        "mobile",
+        "ios",
+        "android",
+        "deployment",
+        "upgrades",
+        "native-modules",
+        "komand-preview"
+    ],
+    "skills": "./skills/",
+    "mcpServers": "./.mcp.json",
+    "interface": {
+        "displayName": "Expo (Komand)",
+        "shortDescription": "Build, deploy, debug, and upgrade Expo apps across iOS, Android, and web — iOS runs surface inside Komand's iPhone preview",
+        "longDescription": "The complete Expo-authored skill set — Expo Router UI, API routes, data fetching, styling, native modules, dev clients, Expo Go, SDK upgrades, EAS builds, App Store / Play Store deployments, web hosting — preserved as shipped by Expo. Komand's extension is additive and iOS-scoped: a new `expo-ios-debugger` skill routes iOS runs through XcodeBuildMCP's `build_sim` / `install_app_sim` / `launch_app_sim` flow so the running app surfaces inside Komand's embedded iPhone preview instead of Apple's Simulator.app. Android, web, Expo Go, EAS workflows, and CI/CD are unchanged from upstream Expo.",
+        "developerName": "Komand",
+        "category": "Coding",
+        "capabilities": ["Interactive", "Read", "Write"],
+        "websiteURL": "https://komand.ai/",
+        "privacyPolicyURL": "https://komand.ai/privacy",
+        "termsOfServiceURL": "https://komand.ai/terms",
+        "defaultPrompt": "Use Expo (Komand) for building, deploying, upgrading, and debugging Expo and React Native apps across iOS, Android, and web. iOS runs surface inside Komand's embedded iPhone preview automatically; Android, web, Expo Go, and EAS workflows behave exactly like upstream Expo.",
+        "composerIcon": "./assets/expo.png",
+        "logo": "./assets/expo.png",
+        "screenshots": [],
+        "brandColor": "#000020"
+    }
+}

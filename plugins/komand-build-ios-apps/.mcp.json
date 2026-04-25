@@ -1,0 +1,22 @@
+{
+    "mcpServers": {
+        "xcodebuildmcp": {
+            "command": "npx",
+            "args": ["-y", "xcodebuildmcp@latest", "mcp"],
+            "env": {
+                "XCODEBUILDMCP_ENABLED_WORKFLOWS": "simulator,ui-automation,debugging,logging"
+            },
+            "timeout": 300000,
+            "blockTools": [
+                "build_run_sim",
+                "build_run_device",
+                "open_sim",
+                "boot_sim"
+            ],
+            "postHooks": {
+                "launch_app_sim": "komand_ios_preview_trigger",
+                "install_app_sim": "komand_ios_preview_trigger"
+            }
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-04-25T08:20:26.934Z",
+  "plugins": [
+    {
+      "name": "komand-build-ios-apps",
+      "version": "0.3.0",
+      "displayName": "Build iOS Apps (Komand)",
+      "description": "Build iOS apps and run them inside Komand's embedded iPhone preview",
+      "longDescription": "Use Build iOS Apps to design App Intents and App Shortcuts, build or refactor SwiftUI UI, adopt modern iOS patterns such as Liquid Glass, audit runtime performance, and debug apps on simulators with XcodeBuildMCP-backed workflows. When a skill in this plugin runs an iOS app, it surfaces the running simulator inside Komand's embedded iPhone preview (the iOS tab next to the Browser tab) instead of Apple's Simulator.app window.",
+      "author": {
+        "name": "Komand",
+        "email": "support@komand.ai",
+        "url": "https://komand.ai/"
+      },
+      "homepage": "https://komand.ai/",
+      "repository": "https://github.com/PauliusOS/macosclaude",
+      "license": "MIT",
+      "keywords": [
+        "ios",
+        "swift",
+        "swiftui",
+        "app-intents",
+        "shortcuts",
+        "siri",
+        "spotlight",
+        "xcode",
+        "performance",
+        "debugging",
+        "komand-preview"
+      ],
+      "category": "Coding",
+      "brandColor": "#0A84FF",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/PauliusOS/komand-plugins@main/plugins/komand-build-ios-apps/assets/build-ios-apps-small.svg",
+      "tarballUrl": "https://codeload.github.com/PauliusOS/komand-plugins/tar.gz/refs/heads/main",
+      "tarballSubpath": "plugins/komand-build-ios-apps",
+      "isOfficial": true
+    },
+    {
+      "name": "komand-expo",
+      "version": "1.2.0",
+      "displayName": "Expo (Komand)",
+      "description": "Build, deploy, debug, and upgrade Expo apps across iOS, Android, and web — iOS runs surface inside Komand's iPhone preview",
+      "longDescription": "The complete Expo-authored skill set — Expo Router UI, API routes, data fetching, styling, native modules, dev clients, Expo Go, SDK upgrades, EAS builds, App Store / Play Store deployments, web hosting — preserved as shipped by Expo. Komand's extension is additive and iOS-scoped: a new `expo-ios-debugger` skill routes iOS runs through XcodeBuildMCP's `build_sim` / `install_app_sim` / `launch_app_sim` flow so the running app surfaces inside Komand's embedded iPhone preview instead of Apple's Simulator.app. Android, web, Expo Go, EAS workflows, and CI/CD are unchanged from upstream Expo.",
+      "author": {
+        "name": "Komand",
+        "email": "support@komand.ai",
+        "url": "https://komand.ai/"
+      },
+      "homepage": "https://komand.ai/",
+      "repository": "https://github.com/PauliusOS/macosclaude",
+      "license": "MIT",
+      "keywords": [
+        "expo",
+        "react-native",
+        "expo-router",
+        "eas",
+        "mobile",
+        "ios",
+        "android",
+        "deployment",
+        "upgrades",
+        "native-modules",
+        "komand-preview"
+      ],
+      "category": "Coding",
+      "brandColor": "#000020",
+      "iconUrl": "https://cdn.jsdelivr.net/gh/PauliusOS/komand-plugins@main/plugins/komand-expo/assets/expo.png",
+      "tarballUrl": "https://codeload.github.com/PauliusOS/komand-plugins/tar.gz/refs/heads/main",
+      "tarballSubpath": "plugins/komand-expo",
+      "isOfficial": true
+    }
+  ]
+}

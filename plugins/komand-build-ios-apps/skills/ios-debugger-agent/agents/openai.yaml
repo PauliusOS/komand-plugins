@@ -1,0 +1,4 @@
+interface:
+    display_name: 'iOS Debugger Agent'
+    short_description: "Build and run an iOS app inside Komand's embedded iPhone preview"
+    default_prompt: "Use $ios-debugger-agent to build, install, and launch the current iOS app. Komand surfaces the running simulator automatically inside its embedded iPhone preview when you call install_app_sim or launch_app_sim — no separate trigger step needed. Workflow: list_sims → session-set-defaults → build_sim → get_sim_app_path → get_app_bundle_id → install_app_sim → launch_app_sim. Tools that open Apple's Simulator.app window (build_run_sim, open_sim, boot_sim) are not exposed by Komand — use build_sim + install_app_sim + launch_app_sim instead."

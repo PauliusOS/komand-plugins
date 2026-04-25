@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+#
+# komand-ios — thin wrapper that surfaces a booted iOS Simulator inside
+# Komand's embedded iPhone preview. Two channels, both fired:
+#
+#   1. Deep link:   open komand://ios/show?udid=<UDID>
+#      Works in release builds where macOS LaunchServices routes komand://
+#      URLs to the installed Komand.app.
+#
+#   2. Trigger file: ~/Library/Application Support/ai.clonk.app/ios-preview-trigger.json
+#      Works in `pnpm tauri dev` too, where LaunchServices won't route
+#      to a raw debug binary. Komand's Rust process polls this file every
+#      500ms, emits a Tauri event, and deletes the file.
+#
+# Firing both is cheap and makes the behavior identical across dev and prod.
+#
+# Usage:
+#   komand-ios list-sims                  # xcrun simctl list devices -j
+#   komand-ios boot <udid>                # xcrun simctl boot (idempotent)
+#   komand-ios show <udid>                # open the embedded preview
+#   komand-ios run <udid> <bundle-id>     # boot + show + launch app
+
+set -euo pipefail
+
+TRIGGER_DIR="$HOME/Library/Application Support/ai.clonk.app"
+TRIGGER_FILE="$TRIGGER_DIR/ios-preview-trigger.json"
+
+usage() {
+    cat <<'EOF'
+Usage:
+  komand-ios list-sims
+  komand-ios boot <udid>
+  komand-ios show <udid>
+  komand-ios run <udid> <bundle-id>
+EOF
+    exit 2
+}
+
+fire_preview() {
+    local udid="$1"
+    # Deep-link channel (prod).
+    /usr/bin/open "komand://ios/show?udid=$udid" 2>/dev/null || true
+    # Trigger-file channel (dev + fallback).
+    mkdir -p "$TRIGGER_DIR"
+    # JSON is tiny — write atomically via tmp + mv so the watcher never
+    # reads a half-written file.
+    local tmp="$TRIGGER_FILE.tmp"
+    printf '{"udid":"%s"}\n' "$udid" >"$tmp"
+    mv -f "$tmp" "$TRIGGER_FILE"
+}
+
+cmd="${1:-}"
+case "$cmd" in
+    list-sims)
+        exec /usr/bin/xcrun simctl list devices -j
+        ;;
+    boot)
+        udid="${2:-}"
+        [ -n "$udid" ] || usage
+        /usr/bin/xcrun simctl boot "$udid" 2>/dev/null || true
+        ;;
+    show)
+        udid="${2:-}"
+        [ -n "$udid" ] || usage
+        fire_preview "$udid"
+        ;;
+    run)
+        udid="${2:-}"
+        bundle="${3:-}"
+        [ -n "$udid" ] && [ -n "$bundle" ] || usage
+        /usr/bin/xcrun simctl boot "$udid" 2>/dev/null || true
+        fire_preview "$udid"
+        # Small delay so the preview has started streaming before the app
+        # appears on screen — cosmetic, the stream catches up either way.
+        sleep 1
+        /usr/bin/xcrun simctl launch "$udid" "$bundle"
+        ;;
+    ""|-h|--help)
+        usage
+        ;;
+    *)
+        echo "unknown command: $cmd" >&2
+        usage
+        ;;
+esac

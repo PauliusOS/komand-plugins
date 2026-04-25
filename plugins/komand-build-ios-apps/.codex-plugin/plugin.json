@@ -1,0 +1,44 @@
+{
+    "name": "komand-build-ios-apps",
+    "version": "0.3.0",
+    "description": "Build, refine, and debug iOS apps with App Intents, SwiftUI, and Xcode workflows — and surface the running app inside Komand's embedded iPhone preview.",
+    "author": {
+        "name": "Komand",
+        "email": "support@komand.ai",
+        "url": "https://komand.ai/"
+    },
+    "homepage": "https://komand.ai/",
+    "repository": "https://github.com/PauliusOS/macosclaude",
+    "license": "MIT",
+    "keywords": [
+        "ios",
+        "swift",
+        "swiftui",
+        "app-intents",
+        "shortcuts",
+        "siri",
+        "spotlight",
+        "xcode",
+        "performance",
+        "debugging",
+        "komand-preview"
+    ],
+    "skills": "./skills/",
+    "mcpServers": "./.mcp.json",
+    "interface": {
+        "displayName": "Build iOS Apps (Komand)",
+        "shortDescription": "Build iOS apps and run them inside Komand's embedded iPhone preview",
+        "longDescription": "Use Build iOS Apps to design App Intents and App Shortcuts, build or refactor SwiftUI UI, adopt modern iOS patterns such as Liquid Glass, audit runtime performance, and debug apps on simulators with XcodeBuildMCP-backed workflows. When a skill in this plugin runs an iOS app, it surfaces the running simulator inside Komand's embedded iPhone preview (the iOS tab next to the Browser tab) instead of Apple's Simulator.app window.",
+        "developerName": "Komand",
+        "category": "Coding",
+        "capabilities": ["Interactive", "Read", "Write"],
+        "websiteURL": "https://komand.ai/",
+        "privacyPolicyURL": "https://komand.ai/privacy",
+        "termsOfServiceURL": "https://komand.ai/terms",
+        "defaultPrompt": "Design App Intents or App Shortcuts, build or refactor SwiftUI UI, audit performance, adopt modern iOS APIs, or build and run an iOS app inside Komand's embedded iPhone preview.",
+        "brandColor": "#0A84FF",
+        "composerIcon": "./assets/build-ios-apps-small.svg",
+        "logo": "./assets/app-icon.png",
+        "screenshots": []
+    }
+}
