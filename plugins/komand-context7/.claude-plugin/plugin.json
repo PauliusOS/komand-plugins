@@ -1,0 +1,33 @@
+{
+    "name": "komand-context7",
+    "version": "1.0.0",
+    "description": "Fetch up-to-date library documentation via the Context7 CLI before answering questions about any framework, SDK, or API.",
+    "author": {
+        "name": "Komand",
+        "email": "support@komand.ai",
+        "url": "https://komand.ai/"
+    },
+    "homepage": "https://komand.ai/",
+    "repository": "https://github.com/PauliusOS/komand-plugins",
+    "license": "MIT",
+    "keywords": [
+        "context7",
+        "docs",
+        "documentation",
+        "library",
+        "api",
+        "cli",
+        "ctx7",
+        "reference"
+    ],
+    "skills": "./skills/",
+    "displayName": "Context7 (Komand)",
+    "shortDescription": "Pull current library docs via the Context7 CLI before answering API or framework questions",
+    "longDescription": "Wraps the official `ctx7` CLI (from upstash/context7) so the agent fetches authoritative, up-to-date docs whenever the user asks about a library, framework, SDK, API, or CLI tool — even ones the model thinks it knows. The skill teaches the two-step workflow (resolve a name to a library ID, then query docs against that ID), how to pick the best match, when to use the `--research` retry flag, and which scenarios to skip (refactors, business-logic debugging, general programming concepts). No MCP server: pure CLI invocation via `npx ctx7@latest`, so it works in any environment with Node available.",
+    "developerName": "Komand",
+    "category": "Documentation",
+    "brandColor": "#0EA5E9",
+    "icon": "./assets/context7.svg",
+    "iconSmall": "./assets/context7.svg",
+    "defaultPrompt": "Use Context7 to fetch fresh library documentation before answering API, framework, or SDK questions. Run `npx ctx7@latest library <name> \"<question>\"` to find the library ID, then `npx ctx7@latest docs <id> \"<question>\"` to read the docs."
+}
