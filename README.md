@@ -43,10 +43,13 @@ komand-plugins/
 
 - **Discovery:** GET `https://raw.githubusercontent.com/<owner>/komand-plugins/main/index.json`.
   Cached locally with ETag; ~1 KB per plugin.
-- **Install:** GET `tarballUrl` (`https://codeload.github.com/.../main`),
-  unzip just `tarballSubpath` into
-  `~/.claude/plugins/cache/komand-bundled/<name>/<version>/`,
-  register in `~/.claude/plugins/installed_plugins.json`.
+- **Install:** GET `tarballUrl` — a **per-plugin** tarball served from
+  jsDelivr (`https://cdn.jsdelivr.net/gh/<owner>/komand-plugins@main/tarballs/<name>.tar.gz`),
+  built by `generate-index.mjs` into `tarballs/`. Each archive is laid
+  out as `komand-plugins/plugins/<name>/...`, so the installer extracts
+  `tarballSubpath` (`plugins/<name>`) into `~/komand/plugins/<name>/`.
+  (Earlier this pulled the whole-repo codeload tarball per install — that
+  scaled badly once the catalog grew, so it's now one small tarball each.)
 - **Icons:** served via jsDelivr CDN
   (`https://cdn.jsdelivr.net/gh/<owner>/komand-plugins@main/...`) —
   no GitHub rate limits, edge-cached.
